@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#163e38" />
+    <meta name="description" content="Open, annotate, organize and export PDFs in your browser. FolioVale is free, open source, and keeps your documents on your device." />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <title>FolioVale — Your PDFs, at ease</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to document</a>
+    <header class="app-header">
+      <a class="brand" href="./" aria-label="FolioVale home"><span class="brand-mark" aria-hidden="true">F</span>FolioVale <span class="preview-label">Preview</span></a>
+      <span class="privacy-label">On your device. In your control.</span>
+      <button id="help-button" class="quiet">Help</button>
+      <a class="source-link" href="https://github.com/GreatOSS/pdf" target="_blank" rel="noreferrer">Source ↗</a>
+    </header>
+    <main id="workspace" tabindex="-1">
+      <section id="welcome" class="welcome">
+        <div class="eyebrow">A LITTLE MORE CLARITY. A LOT LESS FRICTION.</div>
+        <h1>Your PDFs,<br /><em>at ease.</em></h1>
+        <p class="intro">Read carefully. Make your mark. Put pages in order.<br />A quiet space for your documents, right in your browser.</p>
+        <div class="drop-zone" id="drop-zone">
+          <div class="file-symbol" aria-hidden="true">↥</div>
+          <button class="primary large" id="open-welcome">Open a PDF</button>
+          <p>or drop a file anywhere here</p>
+          <span class="muted">No account. No uploads. No watermark.</span>
+        </div>
+        <div id="recovery" class="recovery" hidden><div><strong>A document is waiting for you</strong><p id="recovery-name"></p></div><button id="restore" class="primary">Restore session</button><button id="discard-recovery">Forget</button></div>
+        <button id="sample" class="text-button">Just looking? Try a sample document →</button>
+        <div class="features"><div><span>01 / READ</span><h2>Room to focus</h2><p>Crisp pages, selectable text and an uncluttered reading space.</p></div><div><span>02 / REFINE</span><h2>Make it yours</h2><p>Add text, highlights and images. Rotate, reorder or remove pages.</p></div><div><span>03 / KEEP</span><h2>Leave with your work</h2><p>Export a real PDF. Undo your changes. Recover your last session.</p></div></div>
+      </section>
+      <section id="editor" hidden aria-label="PDF editor">
+        <div class="document-bar"><div class="document-title"><strong id="filename"></strong><span id="save-state"></span></div><button id="open-other">Open another</button><button id="export" class="primary">Export PDF ↓</button></div>
+        <div class="toolbar" aria-label="Document tools">
+          <div class="tool-group"><button id="tool-select" aria-pressed="true">Select</button><button id="tool-text" aria-pressed="false">Add text</button><button id="tool-highlight" aria-pressed="false">Highlight</button><button id="tool-image" aria-pressed="false">Add image</button></div>
+          <div class="tool-group"><button id="undo" title="Undo (Ctrl/⌘ Z)" disabled>↶ Undo</button><button id="redo" title="Redo (Ctrl/⌘ Shift Z)" disabled>↷ Redo</button></div>
+          <div class="tool-group zoom-tools"><button id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-value">100%</output><button id="zoom-in" aria-label="Zoom in">+</button><button id="fit">Fit width</button></div>
+        </div>
+        <div id="tool-options" class="options-bar" hidden>
+          <label id="text-option">Text <input id="annotation-text" placeholder="Your text" maxlength="500" /></label>
+          <label id="size-option">Size <input id="font-size" type="number" value="18" min="8" max="96" /></label>
+          <span id="tool-hint"></span>
+        </div>
+        <div class="reading-layout">
+          <aside class="page-panel" aria-label="Page organization"><h2>Pages <span id="page-count"></span></h2><p class="sidebar-hint">Choose a page to read or organize.</p><div id="page-list"></div><div class="page-actions"><button id="rotate">Rotate ↻</button><button id="move-up">Move earlier ↑</button><button id="move-down">Move later ↓</button><button id="delete-page" class="danger">Delete page</button></div></aside>
+          <div class="document-area"><div class="navigation"><button id="previous" aria-label="Previous page">←</button><label>Page <input id="page-number" type="number" min="1" value="1" /></label><span id="page-total"></span><button id="next" aria-label="Next page">→</button><span id="page-loading" role="status"></span></div><div id="page-scroll" tabindex="0" aria-label="Document viewport"><div id="page-surface"><canvas id="pdf-canvas"></canvas><div id="text-layer" class="textLayer"></div><svg id="annotation-layer" xmlns="http://www.w3.org/2000/svg" aria-label="Added annotations"></svg></div></div></div>
+        </div>
+        <div class="editor-footer"><span id="session-status">Session recovery on this browser</span><button id="close-document" class="text-button">Close & forget document</button></div>
+      </section>
+    </main>
+    <div id="notice" role="status" aria-live="polite" hidden></div>
+    <input type="file" id="pdf-input" accept="application/pdf,.pdf" hidden />
+    <input type="file" id="image-input" accept="image/png,image/jpeg" hidden />
+    <dialog id="help-dialog"><h2>A little help</h2><p><strong>Read:</strong> select and copy text with Select. Use the page list or arrows to navigate. Fit width adapts to your screen.</p><p><strong>Annotate:</strong> choose Add text, enter your text, then click the page. Drag a rectangle to highlight. Choose a PNG or JPEG, then click to place it. In Select mode, click an added item to remove it using Delete or Backspace.</p><p><strong>Organize:</strong> rotate, move or delete the current page. Every edit supports undo and redo.</p><p><strong>Keep:</strong> Export PDF downloads a copy. Your original file is never overwritten. The last session is stored locally in this browser; Close & forget removes it.</p><p><strong>Shortcuts:</strong> Ctrl/⌘ Z to undo, Ctrl/⌘ Shift Z to redo, Ctrl/⌘ S to export. Escape returns to Select.</p><p class="muted">Preview limitations: adds content rather than rewriting existing text. No OCR, redaction, form filling, password-protected editing or signature validation yet. Adding a highlight does not remove the text beneath it. Export may invalidate existing digital signatures.</p><form method="dialog"><button class="primary">Got it</button></form></dialog>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
