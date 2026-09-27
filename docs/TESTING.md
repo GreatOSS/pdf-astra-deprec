@@ -36,3 +36,9 @@ Used the browser MCP and graphical desktop tools, not just source inspection:
 - Startup bundle is comparatively large; PDF libraries should load on demand in a future performance pass.
 
 Local screenshots and downloaded test PDFs are retained under the maintainer's browser artifact directory and ignored `test-output/`. No user documents or private data are checked in.
+
+### Publication verification
+
+- Initial implementation published as `c1efedd` to GreatOSS/pdf. [GitHub CI](https://github.com/GreatOSS/pdf/actions/runs/36301920239) passed.
+- Initial Pages run failed because repository Pages hosting was not enabled. Enabled GitHub Actions as the Pages source, reran the workflow, and [deployment succeeded](https://github.com/GreatOSS/pdf/actions/runs/36301920260).
+- Opened the actual public site at https://greatoss.github.io/pdf/, loaded the sample, added text, exported and reopened the downloaded PDF. The added text appeared in the reopened PDF's text layer. No browser console errors; observed network requests were same-origin static GETs, with no document uploads.
