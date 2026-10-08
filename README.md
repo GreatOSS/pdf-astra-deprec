@@ -1,8 +1,11 @@
 # FolioVale
 
+> **Deprecated experiment.** This preserves an earlier implementation and is not part of the final clean $100-per-deployment comparison.
+> [Open this historical app](https://greatoss.github.io/pdf-astra-deprec/) · [Current Astra experiment](https://github.com/GreatOSS/pdf-astra)
+
 **Your PDFs, at ease.** A free, open-source, local-first PDF viewer and editor.
 
-**[Open FolioVale](https://greatoss.github.io/pdf/)** · [Report a problem](https://github.com/GreatOSS/pdf/issues) · [Product direction](docs/NAME-AND-DIRECTION.md)
+**[Open FolioVale](https://greatoss.github.io/pdf-astra-deprec/)** · [Report a problem](https://github.com/GreatOSS/pdf-astra-deprec/issues) · [Product direction](docs/NAME-AND-DIRECTION.md)
 
 FolioVale runs in your browser. Documents are processed on your device, without accounts, uploads, watermarks or analytics. This is an early **0.1 preview**, developed from scratch in **GreatOSS/pdf**.
 
@@ -22,8 +25,8 @@ Choose **Open a PDF**, drop a file, or use the built-in sample. **Help** explain
 Requires Node.js 24 and npm.
 
 ```sh
-git clone https://github.com/GreatOSS/pdf.git
-cd pdf
+git clone https://github.com/GreatOSS/pdf-astra-deprec.git
+cd pdf-astra-deprec
 npm ci
 npm run dev
 ```

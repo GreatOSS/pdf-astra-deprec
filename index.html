@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#163e38" />
     <meta name="description" content="Open, annotate, organize and export PDFs in your browser. FolioVale is free, open source, and keeps your documents on your device." />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <title>FolioVale — Your PDFs, at ease</title>
+    <title>[Deprecated] FolioVale — Your PDFs, at ease</title>
   </head>
   <body>
     <a class="skip-link" href="#workspace">Skip to document</a>
@@ -14,7 +14,7 @@
       <a class="brand" href="./" aria-label="FolioVale home"><span class="brand-mark" aria-hidden="true">F</span>FolioVale <span class="preview-label">Preview</span></a>
       <span class="privacy-label">On your device. In your control.</span>
       <button id="help-button" class="quiet">Help</button>
-      <a class="source-link" href="https://github.com/GreatOSS/pdf" target="_blank" rel="noreferrer">Source ↗</a>
+      <a class="source-link" href="https://github.com/GreatOSS/pdf-astra-deprec" target="_blank" rel="noreferrer">Source ↗</a>
     </header>
     <main id="workspace" tabindex="-1">
       <section id="welcome" class="welcome">
@@ -55,5 +55,8 @@
     <input type="file" id="image-input" accept="image/png,image/jpeg" hidden />
     <dialog id="help-dialog"><h2>A little help</h2><p><strong>Read:</strong> select and copy text with Select. Use the page list or arrows to navigate. Fit width adapts to your screen.</p><p><strong>Annotate:</strong> choose Add text, enter your text, then click the page. Drag a rectangle to highlight. Choose a PNG or JPEG, then click to place it. In Select mode, click an added item to remove it using Delete or Backspace.</p><p><strong>Organize:</strong> rotate, move or delete the current page. Every edit supports undo and redo.</p><p><strong>Keep:</strong> Export PDF downloads a copy. Your original file is never overwritten. The last session is stored locally in this browser; Close & forget removes it.</p><p><strong>Shortcuts:</strong> Ctrl/⌘ Z to undo, Ctrl/⌘ Shift Z to redo, Ctrl/⌘ S to export. Escape returns to Select.</p><p class="muted">Preview limitations: adds content rather than rewriting existing text. No OCR, redaction, form filling, password-protected editing or signature validation yet. Adding a highlight does not remove the text beneath it. Export may invalidate existing digital signatures.</p><form method="dialog"><button class="primary">Got it</button></form></dialog>
     <script type="module" src="/src/main.ts"></script>
+  
+    <aside id="experiment-status" aria-label="Experiment status" style="position:fixed;bottom:8px;right:8px;z-index:2147483647;padding:6px 10px;border:1px solid #64748b;border-radius:8px;background:#0f172a;color:#f8fafc;font:13px system-ui;max-width:calc(100vw - 32px)"><details><summary style="cursor:pointer">Deprecated experiment</summary><a style="color:#93c5fd" href="https://greatoss.github.io/pdf-astra/">Open the current Astra experiment</a></details></aside>
+    <style>@media print { #experiment-status { display:none !important; } }</style>
   </body>
 </html>
